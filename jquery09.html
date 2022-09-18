@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+  <table border="1" width="640">
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>상태(abcde)</th>
+      </tr>
+    </thead>
+    <tbody id="boardList">
+      <tr>
+        <td>111</td>
+        <td>제목입니다.111</td>
+        <td>작성자</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+  <br /><br /><br />
+  <button id="btnAjax">AJAX 가져오기</button>
+  <script>
+    document.querySelector("#btnAjax").addEventListener("click", function () {
+      // 초기화  
+      let HTML = "";
+      let stateResult = "";
+      let ste = "";
+
+      // 배열로 출력
+      let resultArr = { "1": "A", "2": "B", "3": "C", "4": "D", "5": "E" };
+      resarr = ste ;
+      
+      $.ajax({
+        type: "GET",
+        url: "board.json",
+        dataType: "JSON",
+        success: function (data) {
+          
+          $.each(data, function (index, item) {
+            
+            //배열로 땡겨온다
+            ste = resultArr[item.state];
+
+            // if문을 위해 트림, 결과값을 변수에 담아 그 변수를 비교값으로 사용
+            // ste = $.trim(item.state);
+
+            /* 
+            스위치 케이스 문으로 출력
+            switch (ste) {
+              case "1": stateResult = "A"
+                break;
+              case "2": stateResult = "B"
+                break;
+              case "3": stateResult = "C"
+                break;
+              case "4": stateResult = "D"
+                break;
+              case "5": stateResult = "E"
+                break;
+              default: stateResult = "잘못입력했습니다"
+                break;
+            }
+            */
+
+            HTML += `<tr><td>${item.board_id}</td><td>${item.title}</td><td>${item.name}</td><td>` + ste + `</td></tr>`;
+
+          });
+          $("#boardList").html(HTML);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <h2>jQuery 셀렉터 </h2>
+
+  <form id="chkbx" class="chkbx" name="chkbx" action="" method="GET">
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk1" checked> 체크1
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk2"> 체크2
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk3" checked> 체크3
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk4"> 체크4
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk5" checked> 체크5
+
+  </form>
+
+</body>
+<script>
+
+  // 객체를 읽어서 뭔가를 하겠다
+  $(document).ready(function () {
+
+    // 인풋 태그에 chkbx이름으로 그룹화 된 녀석을 each 로 돌린다. i 순번과 v로 된 객체를 리턴한다. 
+    $("input[name=chkbx]").each(function (i, v) {
+
+      // is 판별하여 checked 상태 확인 -> 체크가 되어있다면 true 
+      if ($(this).is(":checked")) {
+
+        // this 의 벨류를 콘솔로그로 보여준다.
+        console.log($(this).val());
+      }
+    })
+  })
+
+
+
+   // 나중에 참고할것 https://yeonzzy.tistory.com/22
+
+
+</script>
+
+</html>

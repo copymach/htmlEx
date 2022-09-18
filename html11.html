@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+</head>
+
+<body>
+  <h2 id="headline" class="headline"> 강의11 체크박스 전체선택 부분선택</h2>
+  <h3>전체선택 중 하나의 체크가 풀리면 전체선택 박스가 해제 </h3>
+
+  <input type="checkbox" id="chkAll" name="chkAll" class="chkAll" value="1">전체선택
+  <input type="checkbox" id="chkbx1" name="chkbx" class="chkbx" value="1">1
+  <input type="checkbox" id="chkbx2" name="chkbx" class="chkbx" value="2">2
+  <input type="checkbox" id="chkbx3" name="chkbx" class="chkbx" value="3">3
+  <input type="checkbox" id="chkbx4" name="chkbx" class="chkbx" value="4">4
+  <input type="checkbox" id="chkbx5" name="chkbx" class="chkbx" value="5">5
+
+</body>
+
+
+<script>
+
+$(document).ready(function() {
+
+// 체크박스 초기화
+// $('.chkbx').prop('checked', false);
+// $('.chkAll').prop('checked', false);
+
+  // - 전체 갯수 : 
+  let totalCount = $("input:checkbox[name=chkbx]").length
+  console.log("totalCount : " + totalCount);
+
+  // - 선택된 갯수 : 
+  let checkCount = $("input:checkbox[name=chkbx]:checked").length
+  console.log("checkCount : " + checkCount);
+
+
+
+// 전체선택
+$('.chkAll').on("click", function () {
+
+if ($(".chkAll").is(":checked")) $("input[name=chkbx]").prop("checked", true);
+else $("input[name=chkbx]").prop("checked", false);
+
+
+// $('.chkbx').prop('checked', this.checked);
+$("input[name=chkbx]").on("click", function () {
+
+  var totalCount = $("input[name=chkbx]").length;
+  var checked = $("input[name=chkbx]:checked").length;
+
+
+  if (checked != totalCount) $(".chkAll").prop("checked", false);
+  else $(".chkAll").prop("checked", true);
+
+
+
+
+  })
+
+});
+
+
+}) // ready
+
+
+
+
+  // - 전체 checkbox 순회하기
+  // $("input:checkbox[name=chkbx]").each(function () {
+    // this.checked = true;
+  // });
+
+
+</script>
+
+
+</html>

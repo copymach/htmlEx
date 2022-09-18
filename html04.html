@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+</head>
+
+<body>
+  <h2>윈도우 온로드 vs 도큐먼트 레디</h2>
+  <h3>누가 더 빨리 뜰가요?</h3>
+</body>
+
+<script>
+  
+  window.onload = function () {
+    console.log("onload");
+  }
+
+
+  $(document).ready(function () {
+    console.log("jQuery");
+  });
+
+
+// 제이쿼리 레디가 윈도 온로드보다 우선한다.
+
+</script>
+
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+</head>
+
+<body>
+  <h2 id="headline" class="headline"> 강의5 색 변경하기 </h2>
+</body>
+
+<script>
+
+  // 제이쿼리의 모든 문법은 $로 시작, jQuery 로 시작한다.
+
+  // jQuery(document).ready(function () {
+  $(document).ready(function () {
+    
+    // #id 이하의 것은 선택자 
+
+    // id로 선택하기
+    // $("#headline").css("color", "red");
+
+    // class로 선택하기
+    $(".headline").css("color", "blue");
+  });
+
+</script>
+
+
+</html>

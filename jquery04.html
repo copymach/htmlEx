@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <h2> 4강 jQuery 객체 </h2>
+
+  <form id="chkbx" class="chkbx" name="chkbx" action="" method="GET">
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk1" checked> 체크1
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk2"> 체크2
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk3" checked> 체크3
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk4"> 체크4
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk5" checked> 체크5
+  </form>
+
+  <table border="1px">
+    <tbody id="productList">
+      <tr>
+        <td>번호</td>
+        <td>제목</td>
+        <td>이름</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table border="1px">
+    <tbody id="productList">
+      <tr style="background-color: red;">
+        <td>번호</td>
+        <td>제목</td>
+        <td>이름</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</body>
+<script>
+
+
+  // 배열을 만든다
+  let arr = [];
+
+  // html 들어갈 자리를 초기화
+  let HTML = "";
+
+  for (i = 0; i < 100; i++) {
+
+    // obj 객체 초기화
+    let ob = {
+      num: i,
+      title: "제목" + i,
+      name: "김철수" + i
+    }
+
+    // 배열에 오브젝트를 넣었다
+    arr[i] = ob;
+  }
+
+  // 변수 선언 전에 초기화 
+  let style = "";
+  for (i = 0; i < arr.length; i++) {
+    let data = arr[i];
+    // console.log("i만 찍었을때" + i)
+    // console.log("arr 출력 " + arr[i])
+
+    // 짝수 번째 줄에 색상 출력
+    if (i % 2 === 0) {
+      style = "background-color:blue";
+    } else {
+      style = "";
+    }
+
+    HTML += "<tr style='"+style+"'><td>" + data.num + "</td><td>"
+      + data.title + "</td><td>"
+      + data.name + "</td></tr>";
+
+  }
+
+  $("#productList").html(HTML)
+
+</script>
+
+</html>

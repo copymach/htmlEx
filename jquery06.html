@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <h2> 6강 이중포문 버튼으로 실행</h2>
+
+  <form id="renderTable">
+    <div class="">
+      이름 :
+      <input type="text" name="name" id="name">
+    </div>
+    <div class="">
+      주소 :
+      <input type="text" name="add" id="add">
+    </div>
+    <div class="">
+      행 갯수 :
+      <input type="text" name="lines" id="lines">
+    </div>
+
+    <button id="renderBtn">테이블만들기</button>
+  </form>
+
+  <div id="createtb"></div>
+
+</body>
+<script>
+
+  console.log("------ 콘솔로그 시작----------");
+
+  document.querySelector("#renderTable").addEventListener("click", funtion(event))
+  // 버튼 누르기 전까지 자동실행 대기
+  $(document).ready(function (event) {
+
+    event.preventDefault();
+
+    $("#renderBtn").on("click", function () {
+      // console.log("버튼 잘 찍힘");
+
+      // 변수 선언 전에 초기화 
+      let HTML = "";
+      let style = "";
+      let str = "자료가 없습니다";
+      let lines = $("input[name=lines]").val();
+      let name = $("input[name=name]").val();
+      let add = $("input[name=add]").val();;
+
+      HTML += "<table border='1px'>";
+      for (i = 0; i < lines; i++) {
+        // 첫행 검증
+        if (i === 0) {
+          HTML += "<tr> <td colspan='2'>" + str + " </td></tr>";
+        }
+
+        HTML += "<tr>";
+        for (j = 0; j < 1; j++) {
+          HTML += "<td>" + name + "</td><td>" + add + "</td>";
+        }
+        HTML += "</tr>";
+      }
+      HTML += "</table>";
+
+      $("#createtb").html(HTML);
+
+    })
+
+  })
+
+
+
+</script>
+
+</html>

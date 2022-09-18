@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <h2>jQuery 셀렉터 </h2>
+
+  <form action="" id="frmProduct" class="frmProductClass">
+    <input type="text" id="product" class="productClass" name="productName" value="">
+    <button type="submit">전송</button>
+  </form>
+
+</body>
+<script>
+  
+  $(".frmProductClass").on('submit', function (event) {
+    event.preventDefault();
+    
+    
+    console.log("id 선택자 : "+ $("#product").val());
+    console.log("클래스 선택자 : "+ $(".productClass").val());
+    console.log("이름 선택자 : "+ $("input[name=productName]").val());
+    
+    
+    console.log("자식 선택자 : "+$(('#frmProduct').children).val());
+    
+    console.log("요소 선택자 : "+ $('body>form>input').val());
+
+/*
+
+종류
+
+
+사용법
+
+
+설명
+
+
+
+
+전체 선택자
+
+
+$("*")
+
+
+모든 요소를 선택합니다.
+
+
+
+
+아이디 선택자
+
+
+$("#아이디명")
+
+
+id 속성에 지정한 값을 가진 요소를 선택한다.
+
+
+
+
+클래스 선택자
+
+
+$(".클래스명")
+
+
+class 속성에 지정한 값을 가진 요소를 선택한다.
+
+
+
+
+요소 선택자
+
+
+$("요소명")
+
+
+지정한 요소명과 일치하는 요소들만 선택한다.
+
+
+
+
+그룹 선택자
+
+
+$("선택1, 선택2,...")
+
+
+지정된 요소들을 한 번에 선택한다.
+
+
+
+
+종속 선택자
+
+
+$("요소.클래스명")
+$("요소#아이디명")
+
+
+요소들중 클래스(아이디)인 요소를 선택한다.
+출처: https://zangzangs.tistory.com/12 [장장스:티스토리]
+
+*/
+
+
+
+      /*
+      제이쿼리 문서 준비 의미하는 코드 
+      jQuery(document).ready(function(){ code });
+      jQuery(function(){ code });
+      $(function(){ code });
+      */
+    
+  })
+  
+</script>
+
+</html>

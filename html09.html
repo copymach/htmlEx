@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+</head>
+
+<body>
+  <h2 id="headline" class="headline"> 강의9 버튼으로 라디오 제어 </h2>
+
+  <input type="radio" id="rdo" class="rdo" name="rdo" value="onoff">
+
+  <button id="btn" class="btn" name="btn">라디오버튼 제어하기</button>
+  
+  
+  form 요소의 disabled, selected, checked와 같은 속성값을 확인 또는 변경하는 경우
+  .prop()를 사용하는 것을 권장한다.
+
+</body>
+
+<script>
+
+
+$("#btn").on("click", function () {
+  
+
+  let onoff = $("input[name=rdo]").is(":checked");
+  // let onoff = $("input[name=rdo]:checked");
+  
+  console.log(onoff);
+
+    if (onoff) {
+      $("#rdo").prop("checked", false);
+      // .attr("checked", false);
+    } else {
+      $("#rdo").prop("checked", true);
+    }
+
+  });
+
+
+
+</script>
+
+
+</html>

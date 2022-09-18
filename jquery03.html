@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <h2> 3강 jQuery 배열 100까지 만들고 0번 김철수~99번 김철수까지 </h2>
+
+  <form id="chkbx" class="chkbx" name="chkbx" action="" method="GET">
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk1" checked> 체크1
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk2"> 체크2
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk3" checked> 체크3
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk4"> 체크4
+    <input type="checkbox" name="chkbx" id="chkbx" value="chk5" checked> 체크5
+
+    <div id="productList"></div>
+  </form>
+
+</body>
+<script>
+
+  let HTML = "";
+
+  // 객체를 읽어서 뭔가를 하겠다
+  $(document).ready(function () {
+
+    // 배열을 선언
+    let arr = [];
+
+    // 반복 100까지
+    for (i = 0; i < 100; i++) {
+      arr[i] = " 김철수 " + i
+    }
+
+    var arr1 = arr.join("|||");
+
+    // 배열 출력 
+    console.log(arr1);
+
+    // 배열 길이만큼 숫자 김철수 모양 생성
+    for (i = 0; i < arr.length; i++) {
+
+    // 더하기 연산자 HTML 배열 갯수 0부터 마지막까지 출력
+      HTML += "<p>" + arr[i] + "</p>"
+    }
+
+    // 제이쿼리에서 사용하는 innerHTML 문법
+    $("#productList").html(HTML)
+
+  })
+
+</script>
+
+</html>

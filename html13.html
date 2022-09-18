@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+</head>
+
+<body>
+  <h2 id="headline" class="headline"> 강의12 버튼 제어</h2>
+  <h3>등록 버튼을 누를때 체크박스all 상태이면 true false 로 콘솔에 표시 </h3>
+
+  <!-- 폼 입력 순서 지킬것 -->
+  <form id="frmTest" class="frmTest" name="frmTest" method="GET" action="/">
+    <input type="text" name="ids" id="ids" class="ids" value="">
+    <input type="text" data-color="red" id="redinput" value="">
+    <input type="checkbox" id="chkAll" name="chkAll" class="chkAll" value="0">전체선택
+    <input type="checkbox" id="chkbx1" name="chkbx" class="chkbx" value="1">1
+    <input type="checkbox" id="chkbx2" name="chkbx" class="chkbx" value="2">2
+    <input type="checkbox" id="chkbx3" name="chkbx" class="chkbx" value="3">3
+    <input type="checkbox" id="chkbx4" name="chkbx" class="chkbx" value="4">4
+    <input type="checkbox" id="chkbx5" name="chkbx" class="chkbx" value="5">5
+    <button type="submit">등록</button>
+  </form>
+
+
+
+</body>
+
+<script>
+
+
+  // 전체선택
+  $('.chkAll').on("click", function () {
+
+    if ($(".chkAll").is(":checked")) $("input[name=chkbx]").prop("checked", true);
+    else $("input[name=chkbx]").prop("checked", false);
+
+    $("input[name=chkbx]").on("click", function () {
+
+      var totalCount = $("input[name=chkbx]").length;
+      var checked = $("input[name=chkbx]:checked").length;
+
+      if (checked != totalCount) $(".chkAll").prop("checked", false);
+      else $(".chkAll").prop("checked", true);
+    })
+  });
+
+
+
+  // 전송 클릭시
+  document.querySelector("#frmTest").addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log("submit 버튼 누름");
+
+    // 부분 클릭시
+
+    // - 전체 갯수 : 
+    let totalCount = $("input:checkbox[name=chkbx]").length
+    console.log("totalCount : " + totalCount);
+
+    // - 선택된 갯수 : 
+    let checkCount = $("input:checkbox[name=chkbx]:checked").length
+    console.log("checkCount : " + checkCount);
+
+
+    // 체크한 값 출력
+    if (totalCount === checkCount) {
+      console.log("true")
+    } else {
+      console.log("false")
+    }
+
+    var ary = new Array();
+
+    $("input[name=chkbx]:checked").each(function (i, v) {
+      // console.log("v 오브젝트 출력 " + v);
+      // console.log("i 인덱스 출력 " + i);
+      // console.log($(this).val());
+      
+      ary[i]= ($(this).val());
+
+      console.log("배열 "+ary[i]);
+      console.log(ary);
+    }) // each
+    
+    let convertstr = ary.join();
+    console.log("convertstr print : "+convertstr)
+    console.log("--------------------");
+    
+    //input 텍스트 결괏값 넣기  
+    $("#ids").val(convertstr);
+    
+    //input 성하씨 방법-이미 정해진 컬러나 사이즈가 있을때 사용하는 방법 
+    $("input[name=chkbx]:checked").attr('value',ary);
+
+
+    // data-color 출력하기 
+    let redbox = $('#redinput').data("color");
+    console.log("redbox : "+redbox)
+
+  }) // 쿼리 셀렉터 이벤트 리스너  
+
+
+
+
+
+</script>
+
+
+</html>

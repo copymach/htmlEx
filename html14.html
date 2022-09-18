@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <h2> 14강 객체 object에 넣은 값 출력하기 </h2>
+  <form id="frmTest" class="" method="GET" action="/">
+    color : <input type="text" id="color" value="">
+    size : <input type="text" id="size" value="">
+    price : <input type="text" id="price" value="">
+    <input type="submit" value="전송">
+  </form>
+</body>
+<script>
+
+  // 도큐먼트 준비 
+  document.querySelector("#frmTest").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // 굿즈 객체 생성
+    var goods = {};
+    goods.color = $("#color").val();
+    goods.size = $("#size").val();
+    goods.price = $("#price").val();
+
+    // 굿즈 출력
+    console.log("goods 출력 : "+goods);
+  })
+
+  console.log("--------------------");
+
+</script>
+
+</html>

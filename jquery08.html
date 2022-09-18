@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+  <table border="1" width="640">
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>상태(1승인2미승인)</th>
+      </tr>
+    </thead>
+    <tbody id="boardList">
+      <tr>
+        <td>111</td>
+        <td>제목입니다.111</td>
+        <td>작성자</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+  <br /><br /><br />
+  <button id="btnAjax">AJAX 가져오기</button>
+  <script>
+    document.querySelector("#btnAjax").addEventListener("click", function () {
+      // 초기화  
+      let HTML = "";
+      let stateResult = "";
+      let ste = "";
+      $.ajax({
+        type: "GET",
+        url: "board.json",
+        dataType: "JSON",
+        success: function (data) {
+          $.each(data, function (index, item) {
+
+            // if문을 위해 트림, 결과값을 변수에 담아 그 변수를 비교값으로 사용
+            // ste = $.trim(item.state);
+            ste = item.state;
+            if (ste === "1") {
+              stateResult = "승인";
+            } else {
+              stateResult = "미승인";
+            }
+
+            HTML += `<tr><td>${item.board_id}</td><td>${item.title}</td><td>${item.name}</td><td>` + stateResult + `</td></tr>`;
+
+          });
+          $("#boardList").html(HTML);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
