@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>혼공 자바 스크립트 43 : 클릭횟수 표시 하기</h2>
+    <div class="">
+      01 with
+
+    </div>
+</body>
+
+<script>
+
+
+  document.addEventListener(`DOMContentLoaded`, () => {
+    // h2 엘리먼트를 만들고
+    const header = document.createElement('h2');
+    
+    // 도큐먼트 바디에 붙히기
+    document.body.appendChild(header);
+
+    // 클릭 횟수 초기화
+    let count = 0
+
+    // 마우스 클릭시 블록 제거 
+    header.style.userSelect = 'none';
+    
+    
+    header.innerText = `클릭 횟수 : ${count}`
+
+    header.addEventListener(`click`, () => {
+
+      count++
+      header.innerText = `클릭 횟수 : ${count}`
+    })
+  })
+
+</script>
+
+
+<div class="">
+  01 02 03 04 05
+
+</div>
+</html>
