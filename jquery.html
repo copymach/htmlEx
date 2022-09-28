@@ -25,6 +25,7 @@
 <br /><br /><br />
 <button id="btnAjax">AJAX 가져오기</button>
 <script>
+
     document.querySelector("#btnAjax").addEventListener("click", function() {
         let HTML = "";
         $.ajax({
@@ -32,7 +33,6 @@
             url: "board.json",
             dataType: "JSON",
             success: function(data) {
-
                 $.each(data, function(index, item) {
                     HTML += `<tr><td>${item.board_id}</td><td>${item.title}</td><td>${item.name}</td></tr>`;
                 });
