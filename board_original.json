@@ -1,0 +1,31 @@
+[{
+  "board_id": "1",
+  "title": "제목입니다.",
+  "name": "홍길동",
+  "state" : "1"
+},{
+  "board_id": "1",
+  "title": "제목입니다.",
+  "name": "홍길동",
+  "state" : "2"
+},{
+  "board_id": "1",
+  "title": "제목입니다.",
+  "name": "홍길동",
+  "state" : "3"
+},{
+  "board_id": "1",
+  "title": "제목입니다.",
+  "name": "홍길동",
+  "state" : "4"
+},{
+  "board_id": "1",
+  "title": "제목입니다.",
+  "name": "홍길동",
+  "state" : "5"
+},{
+  "board_id": "1",
+  "title": "제목입니다.",
+  "name": "홍길동",
+  "state" : "1"
+}]
